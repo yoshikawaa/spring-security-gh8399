@@ -20,19 +20,18 @@ http://localhost:8080/redirect-test/
 
 * access top page
 
-  - access `/redirect-test`
-  - spring security redirect to `/redirect-test/login`
+  - access `/redirect-test/static/form.html`
 
-* login & redirect to `redirectTo` URL
+* send form & redirect
 
-  - push login button
-  - spring security login & try to redirect to `https://google.com/`
-  - `DefaultRedirectStrategy` redirect to `""` (please check logging)
+  - push send button to post `/redirect-test/redirect`
+  - spring security try to redirect to `https://google.com/`
+  - `DefaultRedirectStrategy` redirect to `""`
 
 * check results by browser
 
   in my environment...
 
   - IE : redirect to top page (`/redirect-test`)
-  - Firefox : redirect to login page (`/redirect-test/login`)
-  - Chrome : redirect to login page (`/redirect-test/login`) ※blank page...
+  - Firefox : redirect to login page (`/redirect-test/redirect`) ※405 not allowed
+  - Chrome : redirect to login page (`/redirect-test/redirect`) ※blank page...
